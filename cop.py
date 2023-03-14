@@ -4,8 +4,8 @@ import streamlit as st
 
 import altair as alt
 
-base = pd.read_excel('/content/drive/MyDrive/Relatorios_20231/geral/df_dgeral.xlsx')
-base_d = pd.read_excel('/content/drive/MyDrive/Relatorios_20231/geral/disciplina.xlsx')
+base = pd.read_excel('/df_dgeral.xlsx')
+base_d = pd.read_excel('/disciplina.xlsx')
 
 #Gráfico 1
 
