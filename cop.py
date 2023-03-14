@@ -5,8 +5,8 @@ import altair as alt
 import pip
 pip.main(["install", "openpyxl"])
 
-base = pd.read_excel('/df_dgeral.xlsx')
-base_d = pd.read_excel('/disciplina.xlsx')
+base = pd.read_excel('df_dgeral.xlsx')
+base_d = pd.read_excel('disciplina.xlsx')
 
 #Gráfico 1
 
