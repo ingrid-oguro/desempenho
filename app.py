@@ -124,7 +124,7 @@ if authentication_status:
     g1 = alt.Chart(df2).mark_circle(size=100).encode(
             alt.X('FREQ',scale=alt.Scale(zero=False),axis=alt.Axis(format='%', title='FREQ') ),
             alt.Y('PROVA1',scale=alt.Scale(zero=False) ,axis=alt.Axis(title='Nota', orient = "left") ),
-            tooltip = ['NOME','RA','PROVA1' , alt.Tooltip('FREQ:Q', format='.1%')]).interactive().properties(width=900,height=400)
+            tooltip = ['NOME','RA','PROVA1','PROFESSOR' , alt.Tooltip('FREQ:Q', format='.1%')]).interactive().properties(width=900,height=400)
 
     st.altair_chart(linha_horizontal + linha_vertical + g1, use_container_width=True)
     # with st.expander("Ver base"):
