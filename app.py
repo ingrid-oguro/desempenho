@@ -5,7 +5,7 @@ import streamlit_authenticator as stauth
 import pandas as pd
 from base import *
 import pip
-pip.main(["install", "openpyxl"])
+pip.main(["install", "openpyxl","streamlit_authenticator"])
 # --- Authentication
 
 names = ["Marcelo Dias","Simone Bortoletto","Jose Campos","Fernando Umezu","Fernando Henrique","Rodrigo Aquino"]
