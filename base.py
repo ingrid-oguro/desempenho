@@ -2,7 +2,7 @@ import pandas as pd
 import altair as alt
 import streamlit as st
 
-df = pd.read_excel('/content/drive/MyDrive/Relatorios_20231/desempenho/77.10.04.xlsx')
+df = pd.read_excel('77.10.04.xlsx')
 df = df[df['PROVA1'].notna()]
 df["Curso"] =  df['CODTURMA'].str.split('-').str[0]
 DictCurso = {'EPR':'Engenharia de Produção',
