@@ -14,7 +14,7 @@ usernames = ["marcelod","simone.cruz","jose.campos","fernando.umezu","fernando.h
 # load hashed passwords
 
 #file_path = Path(__file__).parent / "hashed.pw.pkl"
-file_path = Path("hashed_pw.pkl")
+file_path = Path("/content/drive/MyDrive/Relatorios_20231/untitled/hashed_pw.pkl")
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
@@ -108,7 +108,7 @@ if authentication_status:
     #botão disciplina
     disciplinas = sorted(df1.DISCIPLINA.unique())
     disciplinas_selecionada = st.selectbox('Disciplina:',disciplinas)
-    df1 = df1.query('DISCIPLINA == @disciplinas_selecionada')
+    df2 = df1.query('DISCIPLINA == @disciplinas_selecionada')
 
     #botão provas
     provas = [
@@ -121,7 +121,7 @@ if authentication_status:
     disciplinas_selecionada = st.selectbox('Provas:',provas)
     #df1 = df1.query('DISCIPLINA == @disciplinas_selecionada')
 
-    g1 = alt.Chart(df1).mark_circle(size=100).encode(
+    g1 = alt.Chart(df2).mark_circle(size=100).encode(
             alt.X('FREQ',scale=alt.Scale(zero=False),axis=alt.Axis(format='%', title='FREQ') ),
             alt.Y('PROVA1',scale=alt.Scale(zero=False) ,axis=alt.Axis(title='Nota', orient = "left") ),
             tooltip = ['NOME','RA','PROVA1' , alt.Tooltip('FREQ:Q', format='.1%')]).interactive().properties(width=900,height=400)
@@ -130,10 +130,10 @@ if authentication_status:
     # with st.expander("Ver base"):
     #     st.dataframe(df1.style.format({"CODPERLET": "{:.0f}"}))
         
-    a = df.groupby(['RA',  'NOME','Curso'])['PROVA1'].mean()
-    b = a.to_frame()
-    c = b.reset_index()
-    d = c.sort_values(by=['PROVA1'], ascending=False)
+    # a = df2.groupby(['RA',  'NOME','Curso'])['PROVA1'].mean()
+    # b = a.to_frame()
+    # c = b.reset_index()
+    d = df2.sort_values(by=['PROVA1'], ascending=False)
 
 
     with st.expander("Ver base"):
