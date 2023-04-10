@@ -4,6 +4,8 @@ import streamlit as st
 import streamlit_authenticator as stauth 
 import pandas as pd
 from base import *
+import pip
+pip.main(["install", "openpyxl"])
 # --- Authentication
 
 names = ["Marcelo Dias","Simone Bortoletto","Jose Campos","Fernando Umezu","Fernando Henrique","Rodrigo Aquino"]
@@ -12,7 +14,7 @@ usernames = ["marcelo","simone.cruz","jose.campos","fernando.umezu","fernando.he
 # load hashed passwords
 
 #file_path = Path(__file__).parent / "hashed.pw.pkl"
-file_path = Path("/content/drive/MyDrive/Relatorios_20231/untitled/hashed_pw.pkl")
+file_path = Path("hashed_pw.pkl")
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
