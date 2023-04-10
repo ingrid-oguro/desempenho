@@ -8,8 +8,8 @@ import pip
 pip.main(["install", "openpyxl","streamlit_authenticator"])
 # --- Authentication
 
-names = ["Marcelo Dias","Simone Bortoletto","Jose Campos","Fernando Umezu","Fernando Henrique","Rodrigo Aquino"]
-usernames = ["marcelo","simone.cruz","jose.campos","fernando.umezu","fernando.henriques","rodrigo.aquino"]
+names = ["Marcelo Dias","Simone Bortoletto","Jose Campos","Fernando Umezu","Fernando Henriques","Rodrigo Aquino"]
+usernames = ["marcelod","simone.cruz","jose.campos","fernando.umezu","fernando.henriques","rodrigo.aquino"]
 
 # load hashed passwords
 
@@ -69,7 +69,7 @@ if authentication_status:
 
     st.title("Nota e Frequência por aluno.")
     #GERAL
-    if username == "marcelo":
+    if username == "marcelod":
         curso = sorted(df.Curso.unique())
         curso_selecionado = st.selectbox('Graduação:',curso)
         df1 = df.query('Curso == @curso_selecionado	')
