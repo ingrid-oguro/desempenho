@@ -1,0 +1,7 @@
+streamlit
+numpy
+plotly
+plotly.express
+pandas
+altair
+streamlit_authenticator
