@@ -21,6 +21,7 @@ usernames = ["marcelod","simone.cruz","jose.campos","fernando.umezu","fernando.h
 # load hashed passwords
 
 #file_path = Path(__file__).parent / "hashed.pw.pkl"
+#file_path = Path("/content/drive/MyDrive/Relatorios_20231/untitled/hashed_pw.pkl")
 file_path = Path("hashed_pw.pkl")
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
@@ -78,7 +79,7 @@ if authentication_status:
     authenticator.logout("Sair","sidebar")
 
     st.title("Nota e Frequência por aluno.")
-    st.subheader("Atualizado em 02/05/2023")
+    st.subheader("Atualizado em 29/05/2023")
     #GERAL
     if username == "marcelod":
         curso = sorted(df.Curso.unique())
@@ -133,8 +134,9 @@ if authentication_status:
                 # 'MED_FINAL',
                 'PROVA1',
                 'PROVA2',
-                #'NC1','EXCJ1',
-                # 'PROVA3','PROVA4','NC2','EXCJ2','ATIV1',
+                'NC1','EXCJ1',
+                 'PROVA3',
+                #'PROVA4','NC2','EXCJ2','ATIV1',
                 # 'ATIV2','ATIV3','ATIV4','ATIV5','EXA_FINAL'
                 ]
     prova_selecionada = st.selectbox('Provas:',provas)
@@ -187,13 +189,24 @@ if authentication_status:
             column=alt.Column('CODPERLET:N', title = None),
             ).resolve_scale(y='independent').configure_axis(
     labelLimit=150)
+
+    g4 = alt.Chart(df3).mark_bar().encode(
+            x=alt.X('PROVA3'),
+            y=alt.Y('DISCIPLINA', title = None), 
+            color=alt.Color('STATUS:N'),
+            ).properties(width=460, height=300).facet(
+            column=alt.Column('CODPERLET:N', title = None),
+            ).resolve_scale(y='independent').configure_axis(
+    labelLimit=200)    
     
     col1,col2, col3, col4 = st.columns((1,0.1,1,0.1))
     with col1:
         st.altair_chart(g2, use_container_width=True)
     with col3:
         st.altair_chart(g3, use_container_width=True)
-
+    col5,col6, col7, col8 = st.columns((1,0.1,1,0.1))
+    with col5:
+        st.altair_chart(g4, use_container_width=True)    
     with st.expander("Ver base"):
         st.dataframe(df3.style.format({"CODPERLET": "{:.0f}"}))
 
