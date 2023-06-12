@@ -23,9 +23,9 @@ usernames = ["marcelod","simone.cruz","jose.campos",
 
 # load hashed passwords
 
-file_path = Path(__file__).parent / "hashed.pw.pkl"
+#file_path = Path(__file__).parent / "hashed.pw.pkl"
 #file_path = Path("/content/drive/MyDrive/Relatorios_20231/untitled/hashed_pw.pkl")
-#file_path = Path("hashed_pw.pkl")
+file_path = Path("hashed_pw.pkl")
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
