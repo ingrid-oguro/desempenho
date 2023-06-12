@@ -15,14 +15,17 @@ st.set_page_config(
      menu_items={
          'About': "# This is a header. This is an *extremely* cool app!"
      })
-names = ["Marcelo Dias","Simone Bortoletto","Jose Campos","Fernando Umezu","Fernando Henriques","Rodrigo Aquino","Ingrid Oguro"]
-usernames = ["marcelod","simone.cruz","jose.campos","fernando.umezu","fernando.henriques","rodrigo.aquino","ingrid.oguro"]
+names = ["Marcelo Dias","Simone Bortoletto","Jose Campos",
+"Fernando Umezu","Fernando Henriques","Rodrigo Aquino","Ingrid Oguro","Angelo Vieira"]
+
+usernames = ["marcelod","simone.cruz","jose.campos",
+"fernando.umezu","fernando.henriques","rodrigo.aquino","ingrid.oguro","angelo.vieira"]
 
 # load hashed passwords
 
-#file_path = Path(__file__).parent / "hashed.pw.pkl"
+file_path = Path(__file__).parent / "hashed.pw.pkl"
 #file_path = Path("/content/drive/MyDrive/Relatorios_20231/untitled/hashed_pw.pkl")
-file_path = Path("hashed_pw.pkl")
+#file_path = Path("hashed_pw.pkl")
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
@@ -53,9 +56,11 @@ with file_path.open("rb") as file:
                 "password":hashed_passwords[5]},
             usernames[6]:{
                 "name":names[6],
-                "password":hashed_passwords[6]}            
-                }            
-            }
+                "password":hashed_passwords[6]},                            
+            usernames[7]:{
+                "name":names[7],
+                "password":hashed_passwords[7]}            
+                }}
         
 
 authenticator = stauth.Authenticate(credentials,
@@ -70,7 +75,7 @@ if authentication_status == False:
     st.error("Usuário/senha está incorreto")
 
 if authentication_status == None:
-    st.warning("Digite usuário esenha")
+    st.warning("Digite usuário e senha")
 
 if authentication_status:
     
@@ -88,6 +93,12 @@ if authentication_status:
 
     #GERAL
     if username == "simone.cruz":
+        curso = sorted(df.Curso.unique())
+        curso_selecionado = st.selectbox('Graduação:',curso)
+        df1 = df.query('Curso == @curso_selecionado	')
+    
+    #GERAL
+    if username == "angelo.vieira":
         curso = sorted(df.Curso.unique())
         curso_selecionado = st.selectbox('Graduação:',curso)
         df1 = df.query('Curso == @curso_selecionado	')
