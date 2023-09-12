@@ -59,10 +59,7 @@ with file_path.open("rb") as file:
                 "password":hashed_passwords[6]},                            
             usernames[7]:{
                 "name":names[7],
-                "password":hashed_passwords[7]},
-             usernames[8]:{
-                "name":names[8],
-                "password":hashed_passwords[8]}
+                "password":hashed_passwords[7]}
                 }}
         
 
