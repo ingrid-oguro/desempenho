@@ -16,10 +16,10 @@ st.set_page_config(
          'About': "# This is a header. This is an *extremely* cool app!"
      })
 names = ["Marcelo Dias","Simone Bortoletto","Jose Campos",
-"Fernando Umezu","Fernando Henriques","Vanessa Martins","Ingrid Oguro","Angelo Vieira"]
+"Fernando Umezu","Fernando Henriques","Vanessa Martins","Ingrid Oguro","Angelo Vieira","Rafael Gomes"]
 
 usernames = ["marcelod","simone.cruz","jose.campos",
-"fernando.umezu","fernando.henriques","vanessa.martins","ingrid.oguro","angelo.vieira"]
+"fernando.umezu","fernando.henriques","vanessa.martins","ingrid.oguro","angelo.vieira","rafael.gomes"]
 
 # load hashed passwords
 
@@ -59,7 +59,10 @@ with file_path.open("rb") as file:
                 "password":hashed_passwords[6]},                            
             usernames[7]:{
                 "name":names[7],
-                "password":hashed_passwords[7]}            
+                "password":hashed_passwords[7]},
+            usernames[8]:{
+                "name":names[8],
+                "password":hashed_passwords[8]}
                 }}
         
 
@@ -99,6 +102,12 @@ if authentication_status:
 
          #GERAL
     if username == "vanessa.martins":
+        curso = sorted(df.Curso.unique())
+        curso_selecionado = st.selectbox('Graduação:',curso)
+        df1 = df.query('Curso == @curso_selecionado	')
+         
+          #GERAL
+    if username == "rafael.gomes":
         curso = sorted(df.Curso.unique())
         curso_selecionado = st.selectbox('Graduação:',curso)
         df1 = df.query('Curso == @curso_selecionado	')
