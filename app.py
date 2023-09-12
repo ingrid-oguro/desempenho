@@ -16,10 +16,10 @@ st.set_page_config(
          'About': "# This is a header. This is an *extremely* cool app!"
      })
 names = ["Marcelo Dias","Simone Bortoletto","Jose Campos",
-"Fernando Umezu","Fernando Henriques","Ingrid Oguro","Angelo Vieira","Vanessa Martins"]
+"Fernando Umezu","Fernando Henriques","Rodrigo Aquino","Ingrid Oguro","Angelo Vieira"]
 
 usernames = ["marcelod","simone.cruz","jose.campos",
-"fernando.umezu","fernando.henriques","ingrid.oguro","angelo.vieira","vanessa.martins"]
+"fernando.umezu","fernando.henriques","rodrigo.aquino","ingrid.oguro","angelo.vieira"]
 
 # load hashed passwords
 
@@ -59,7 +59,7 @@ with file_path.open("rb") as file:
                 "password":hashed_passwords[6]},                            
             usernames[7]:{
                 "name":names[7],
-                "password":hashed_passwords[7]}
+                "password":hashed_passwords[7]}            
                 }}
         
 
@@ -84,7 +84,7 @@ if authentication_status:
     authenticator.logout("Sair","sidebar")
 
     st.title("Nota e Frequência por aluno.")
-    st.subheader("Atualizado em 12/09/2023")
+    st.subheader("Atualizado em 29/05/2023")
     #GERAL
     if username == "marcelod":
         curso = sorted(df.Curso.unique())
@@ -93,12 +93,6 @@ if authentication_status:
 
     #GERAL
     if username == "simone.cruz":
-        curso = sorted(df.Curso.unique())
-        curso_selecionado = st.selectbox('Graduação:',curso)
-        df1 = df.query('Curso == @curso_selecionado	')
-         
-     #GERAL
-    if username == "vanessa.martins":
         curso = sorted(df.Curso.unique())
         curso_selecionado = st.selectbox('Graduação:',curso)
         df1 = df.query('Curso == @curso_selecionado	')
@@ -226,4 +220,3 @@ if authentication_status:
         st.altair_chart(g4, use_container_width=True)    
     with st.expander("Ver base"):
         st.dataframe(df3.style.format({"CODPERLET": "{:.0f}"}))
-
