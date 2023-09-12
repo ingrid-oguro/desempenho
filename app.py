@@ -16,10 +16,10 @@ st.set_page_config(
          'About': "# This is a header. This is an *extremely* cool app!"
      })
 names = ["Marcelo Dias","Simone Bortoletto","Jose Campos",
-"Fernando Umezu","Fernando Henriques","Rodrigo Aquino","Ingrid Oguro","Angelo Vieira"]
+"Fernando Umezu","Fernando Henriques","Vanessa Martins","Ingrid Oguro","Angelo Vieira"]
 
 usernames = ["marcelod","simone.cruz","jose.campos",
-"fernando.umezu","fernando.henriques","rodrigo.aquino","ingrid.oguro","angelo.vieira"]
+"fernando.umezu","fernando.henriques","vanessa.martins","ingrid.oguro","angelo.vieira"]
 
 # load hashed passwords
 
@@ -93,6 +93,12 @@ if authentication_status:
 
     #GERAL
     if username == "simone.cruz":
+        curso = sorted(df.Curso.unique())
+        curso_selecionado = st.selectbox('Graduação:',curso)
+        df1 = df.query('Curso == @curso_selecionado	')
+
+         #GERAL
+    if username == "vanessa.martins":
         curso = sorted(df.Curso.unique())
         curso_selecionado = st.selectbox('Graduação:',curso)
         df1 = df.query('Curso == @curso_selecionado	')
