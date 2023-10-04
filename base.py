@@ -4,7 +4,7 @@ import streamlit as st
 
 #df = pd.read_excel('/content/drive/MyDrive/Relatorios_20231/untitled/base/77 - 29.05.xlsx')
 #df = pd.read_excel("77 - 04.10.2023.xlsx")
-df = pd.read_excel('77 - 12.09.xlsx')
+df = pd.read_excel('77 - 04.10.2023.xlsx')
 df = df[df['PROVA1'].notna()]
 #df = df[df['PROVA2'].notna()]
 df["Curso"] =  df['CODTURMA'].str.split('-').str[0]
@@ -19,7 +19,8 @@ df['Curso'] = df['Curso'].apply(lambda x: DictCurso [x])
 df["Turno"] =  df['CODTURMA'].str.split('-').str[2]
 DictTurno = {'N':'Noturno',
              'D':'Diurno',
-             'RER':'RER'
+             'RER':'RER',
+             '1':'Noturno'
 }
 df['Turno'] = df['Turno'].apply(lambda x: DictTurno [x])
 
