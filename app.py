@@ -90,7 +90,7 @@ if authentication_status:
     authenticator.logout("Sair","sidebar")
 
     st.title("Nota e Frequência por aluno.")
-    st.subheader("Atualizado em 12/09/2023")
+    st.subheader("Atualizado em 04/10/2023")
     #GERAL
     if username == "marcelod":
         curso = sorted(df.Curso.unique())
